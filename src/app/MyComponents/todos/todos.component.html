@@ -1,0 +1,18 @@
+<div class="container mt-2">
+  <h3 class="text-dark">
+    My Day <span class="badge badge-pill badge-primary">9</span>
+  </h3>
+  <h6 class="text-secondary">{{ today.toDateString() }}</h6>
+  <div *ngIf="todos.length === 0">
+    <p class="text-center">
+      <span><i class="fa fa-spinner fa-spin fa-lg"></i></span> No Todos to
+      display!
+    </p>
+  </div>
+  <div class="card my-3 bg-light" *ngFor="let todo of todos">
+    <app-todo-item
+      [todo]="todo"
+      (todoDelete)="onTodoDelete($event)"
+    ></app-todo-item>
+  </div>
+</div>
